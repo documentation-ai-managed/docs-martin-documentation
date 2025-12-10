@@ -1,0 +1,159 @@
+---
+title: Changelog
+description: Review the version history of Sequa, including new features, improvements, and important updates.
+---
+
+## Latest Updates
+
+Sequa releases new versions regularly to deliver new capabilities, performance improvements, and bug fixes. You review changes here to understand updates and plan your upgrades effectively. Check the tags on each release to prioritize migrations.
+
+<Columns cols={3}>
+  <Card title="v1.3.0" icon="zap" href="#v130">
+    Latest features and performance boosts.
+  </Card>
+  <Card title="v1.2.0" icon="trending-up" href="#v120">
+    Major improvements in knowledge graph accuracy.
+  </Card>
+  <Card title="v1.1.0" icon="package" href="#v110">
+    Enhanced integrations and stability fixes.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  Upgrade to the latest version for optimal performance. Test in staging before production deployment.
+</Callout>
+
+<Update label="2024-10-15" description="v1.3.0" tags={["feature", "improvement"]} id="v130">
+
+## New Features
+
+- Added real-time collaboration on documentation pages
+- Introduced custom knowledge graph visualizations
+- New API endpoint for querying ticket integrations
+
+## Improvements
+
+- Reduced query latency by 40% with optimized indexing
+- Enhanced search relevance using advanced embeddings
+
+## Bug Fixes
+
+- Fixed intermittent sync failures with GitHub repositories
+- Resolved edge cases in ticket data parsing
+
+</Update>
+
+<Update label="2024-09-20" description="v1.2.0" tags={["feature", "bugfix"]} id="v120">
+
+## New Features
+
+- Integrated Jira and Linear ticket support
+- Dashboard widgets for deployment metrics
+
+## Improvements
+
+- Streamlined onboarding with one-click repo setup
+
+## Bug Fixes
+
+- Corrected authentication issues with private repositories
+- Patched memory leaks in long-running queries
+
+</Update>
+
+<Update label="2024-08-10" description="v1.1.0" tags={["breaking", "feature"]} id="v110">
+
+## New Features
+
+- AI-powered code snippet generation from queries
+- Export documentation as Markdown or PDF
+
+## Breaking Changes
+
+- Updated configuration schema; migrate `apiEndpoint` to `baseUrl`
+
+## Bug Fixes
+
+- Fixed cross-origin issues in embedded widgets
+- Improved error handling for invalid repository URLs
+
+</Update>
+
+## Upgrading Sequa
+
+Follow these steps to upgrade your Sequa instance safely. Always back up your configuration and database first.
+
+<Steps>
+  <Step title="Backup Data" icon="database">
+    Export your knowledge graph and settings.
+
+    ```bash
+    sequa export --output backup-$(date +%Y%m%d).json
+    ```
+  </Step>
+  <Step title="Update Package" icon="download">
+    Install the latest version based on your platform.
+  </Step>
+  <Step title="Run Migrations" icon="settings">
+    Apply database schema changes.
+
+    ```bash
+    sequa migrate up
+    ```
+  </Step>
+  <Step title="Verify Installation" icon="check-circle">
+    Test core functionality.
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="npm" icon="package">
+    <CodeGroup tabs="Update,Verify">
+      ```bash
+      npm update @sequa/core@latest
+      npm run build
+      ```
+      ```bash
+      sequa --version
+      curl http://localhost:3000/health
+      ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Docker" icon="docker">
+    <CodeGroup tabs="Update,Verify">
+      ```bash
+      docker pull sequa:latest
+      docker-compose up -d
+      ```
+      ```bash
+      docker logs sequa-container
+      curl http://localhost:3000/health
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+<Expandable title="Deprecations and Migration Guide" default-open="false">
+
+Review deprecated features to ensure compatibility.
+
+| Deprecated | Replacement | Migration Notes |
+|------------|-------------|-----------------|
+| `apiEndpoint` | `baseUrl` | Update in `sequa.config.json` |
+| Legacy auth v1 | OAuth 2.0 | Run `sequa auth migrate` |
+
+For v1.1.0 breaking changes:
+
+````javascript
+// Old config
+{
+  "apiEndpoint": "https://api.sequa.dev"
+}
+
+// New config
+{
+  "baseUrl": "https://api.sequa.dev"
+}
+````
+
+</Expandable>

@@ -1,0 +1,83 @@
+{
+  "name": "Martin Documentation",
+  "description": "Sequa is an AI-powered documentation platform that creates a real-time knowledge graph from your code, repositories, and tickets, providing instant and accurate answers to your development team, enabling them to ship faster and more efficiently.",
+  "initialRoute": "introduction",
+  "colors": {
+    "light": {
+      "brand": "#7c7c7c"
+    },
+    "dark": {
+      "brand": "#9d9d9d"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "icon": "book",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "icon": "rocket",
+            "pages": [
+              {
+                "title": "Introduction",
+                "path": "introduction",
+                "icon": "star"
+              },
+              {
+                "title": "Getting Started",
+                "path": "getting-started",
+                "icon": "play"
+              }
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "icon": "layers",
+            "pages": [
+              {
+                "title": "Core Concepts",
+                "path": "core-concepts",
+                "icon": "file-text"
+              }
+            ]
+          },
+          {
+            "group": "Integrations",
+            "icon": "plug",
+            "pages": [
+              {
+                "title": "Integrations",
+                "path": "integrations",
+                "icon": "link"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "icon": "code",
+        "groups": [
+          {
+            "group": "Endpoints",
+            "icon": "terminal",
+            "openapi": "openapi.yaml"
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "icon": "clock",
+        "pages": [
+          {
+            "title": "Release History",
+            "path": "changelog",
+            "icon": "history"
+          }
+        ]
+      }
+    ]
+  }
+}

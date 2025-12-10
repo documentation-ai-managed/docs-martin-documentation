@@ -1,0 +1,120 @@
+---
+title: Getting Started with Sequa
+description: A step-by-step guide to signing up, configuring your account, and connecting your first data sources to start building your knowledge graph.
+---
+
+## Overview
+
+Sequa builds a real-time knowledge graph from your code repositories and tickets. You gain instant answers to accelerate development. Follow these steps to set up your account and connect sources in minutes.
+
+<Callout kind="tip">
+  You complete setup in under 10 minutes. No credit card required for the free tier.
+</Callout>
+
+## Step-by-Step Setup
+
+Use these steps to create your account, configure the dashboard, connect data sources, and run your first query.
+
+<Steps>
+  <Step title="Create Your Account" icon="user-plus">
+    Visit `https://app.sequa.ai` and click **Sign Up**.
+
+    Fill in your email, team name, and password. Verify your email via the confirmation link.
+
+    After login, you land on the dashboard with a guided tour.
+  </Step>
+
+  <Step title="Configure Initial Dashboard" icon="settings">
+    Customize your workspace:
+
+    - Set your team timezone in **Settings > General**.
+    - Enable notifications for query responses in **Settings > Notifications**.
+    - Review default knowledge graph settings under **Graph > Sources**.
+
+    Save changes to apply them instantly.
+  </Step>
+
+  <Step title="Connect Repositories" icon="git-branch">
+    Link your GitHub or GitLab repositories to index code automatically.
+
+    <Tabs>
+      <Tab title="GitHub" icon="github">
+        Go to **Integrations > GitHub** and click **Connect**.
+
+        Authorize Sequa with your GitHub account. Select repositories like `your-org/webapp` and `your-org/api`.
+
+        Sequa indexes commits, PRs, and code files within 2 minutes.
+      </Tab>
+
+      <Tab title="GitLab" icon="git-commit">
+        Navigate to **Integrations > GitLab** and **Connect**.
+
+        Paste your GitLab personal access token (create one at `https://gitlab.com/-/profile/personal_access_tokens` with `read_repository` scope).
+
+        Choose projects such as `your-group/frontend` and confirm.
+      </Tab>
+    </Tabs>
+  </Step>
+
+  <Step title="Connect Tickets" icon="ticket">
+    Integrate issue trackers to include tickets in your knowledge graph.
+
+    <Tabs>
+      <Tab title="Jira" icon="layers">
+        In **Integrations > Jira**, enter your site URL like `https://yourcompany.atlassian.net`.
+
+        Provide API token and email. Select projects like `PROJ-KEY`.
+
+        Sync starts immediately for issues, comments, and epics.
+      </Tab>
+
+      <Tab title="Linear" icon="list">
+        Head to **Integrations > Linear** and **Connect with OAuth**.
+
+        Grant access to teams such as `engineering`. Sequa pulls cycles, issues, and updates.
+      </Tab>
+    </Tabs>
+  </Step>
+
+  <Step title="Run Your First Query" icon="search">
+    Test the knowledge graph with natural language queries.
+
+    Open the search bar and try these examples:
+
+    <CodeGroup tabs="Code Query,Ticket Query">
+      ```plaintext
+      How do I implement JWT authentication in our Node.js API at /auth/routes?
+      ```
+
+      ```plaintext
+      What blockers are on the login feature in Jira PROJ-123?
+      ```
+    </CodeGroup>
+
+    Sequa returns linked code snippets, tickets, and explanations. Refine with follow-ups like "Show the middleware code".
+  </Step>
+</Steps>
+
+## Next Steps
+
+Explore advanced features to supercharge your team.
+
+<Columns cols={3}>
+  <Card title="Custom Queries" icon="sparkles" href="/docs/queries">
+    Build saved queries and share across your team.
+  </Card>
+
+  <Card title="Graph Analytics" icon="bar-chart-3" href="/docs/analytics">
+    Monitor knowledge coverage and query accuracy.
+  </Card>
+
+  <Card title="Team Collaboration" icon="users" href="/docs/collaboration">
+    Invite members and set permissions.
+  </Card>
+</Columns>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+  - **Sync delays**: Check integration permissions and retry.
+  - **Query no results**: Wait 5 minutes post-connection for indexing.
+  - **Errors**: View logs in **Settings > Integrations**.
+</Expandable>
